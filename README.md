@@ -58,6 +58,27 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## 数据库配置文件
+
+新建**[root]/src/.config/db.config.ts**文件
+
+```typescript
+export const MYSQLCONFIG:any = {
+    type: "mysql", //数据库类型
+    username: "root", //账号
+    password: "****", //密码
+    host: "localhost", // host
+    port: 3306, //端口
+    database: "server", //库名
+    synchronize: true, //synchronize字段表示是否自动将实体类同步到数据库
+    retryDelay: 500, //重试连接数据库间隔
+    retryAttempts: 10, //重试连接数据库的次数
+    autoLoadEntities: true, //如果为true将自动加载实体 forFeature()方
+}
+```
+
+
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
